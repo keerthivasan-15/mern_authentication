@@ -1,7 +1,7 @@
 import {create} from "zustand";
 import axios from "axios";
 
-const api_url = "http://localhost:3000/api/auth";
+const api_url = import.meta.env.MODE === "development"? "http://localhost:3000/api/auth":"/api/auth";
 axios.defaults.withCredentials = true;
 
 export const useAuthStore = create((set)=>({
